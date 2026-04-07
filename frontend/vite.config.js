@@ -10,5 +10,5 @@ export default defineConfig({
       "crazyainfuture.github.io."
     ]
   },
-  base: '/mynotes/', 
+  base: '/XT.push_back/', 
 })
