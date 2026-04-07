@@ -15,7 +15,7 @@ origins = [
     "http://localhost:5173",       # Vite 本地開發預設 port
     "http://127.0.0.1:5173",
     # 如果之後有部署在 GitHub Pages 或其他地方，請將網域加在這裡，例如：
-    # "https://您的帳號.github.io"
+    "https://crazyainfuture.github.io/XT.push_back/"
 ]
 
 app.add_middleware(
