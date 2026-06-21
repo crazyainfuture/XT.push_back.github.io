@@ -113,13 +113,34 @@ function App() {
 
         <section className="content-area">
           {currentPath === "" && (
-            <div className="recent-updates-section">
-              <h2 className="section-title">最新更新</h2>
-              <div className="updates-list">
-                <p className="no-updates-text">目前尚無最新更新資料。</p>
-                {/* 預留給未來放最新資料的區塊 */}
+            <>
+              <div className="recent-updates-section">
+                <h2 className="section-title">最新更新</h2>
+                <div className="updates-list">
+                  <p className="updates-text">2026.06.21  UI 更新</p>
+                </div>
               </div>
-            </div>
+              
+              <div className="courses-section">
+                <h2 className="section-title">我的修課紀錄</h2>
+                <div className="courses-grid">
+                  {[
+                    { title: "大一 (智慧資安)", desc: "計算機概論、程式設計(一)(二)(JAVA)、數位邏輯設計、離散數學、微積分(一)(二)、人工智慧概論、智慧資安講座、資訊安全導論" },
+                    { title: "大二上", desc: "程式設計(一)(C)、線性代數、組合語言、資料結構、數位系統導論、壘球" },
+                    { title: "大二下", desc: "計算機組織、程式設計(二)(C++)、數位系統實作、演算法、工程數學、作業系統、防身術、台灣社會與文化" },
+                    { title: "大三上", desc: "" },
+                    { title: "大三下", desc: "" },
+                    { title: "大四上", desc: "" },
+                    { title: "大四下", desc: "" }
+                  ].map((course, i) => (
+                    <div key={i} className="course-card">
+                      <h3 className="course-title">{course.title}</h3>
+                      <p className="course-desc">{course.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
           )}
           
           {loading ? (

@@ -172,8 +172,51 @@
   box-shadow: var(--shadow-sm);
 }
 
-.no-updates-text {
+.updates-text {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Courses Grid */
+.courses-section {
+  margin-bottom: 2rem;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.course-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  border-color: rgba(255, 255, 255, 1);
+}
+
+.course-title {
+  color: var(--text-main);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.course-desc {
   color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 .file-grid {
