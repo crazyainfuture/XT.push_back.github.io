@@ -11,11 +11,13 @@ const SIDEBAR_ITEMS = [
   { name: "其他筆記", path: "其他筆記", icon: <Layers size={20} /> },
   { name: "大一 (智慧資安)", path: "大一(智慧資安)", icon: <Layers size={20} /> },
   { name: "大二上", path: "大二上", icon: <Layers size={20} /> },
-  { name: "大二下", path: "大二下", icon: <Layers size={20} /> }
+  { name: "大二下", path: "大二下", icon: <Layers size={20} /> },
+  //{ name: "大三上", path: "大三上", icon: <Layers size={20} /> },
 ];
 
 function App() {
   const [files, setFiles] = useState([]);
+  const [recentUpdates, setRecentUpdates] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPath, setCurrentPath] = useState("");
   const [previewFile, setPreviewFile] = useState(null);
@@ -54,7 +56,7 @@ function App() {
     return (
       <div className="breadcrumbs">
         <button className="breadcrumb-item" onClick={() => setCurrentPath("")}>
-          <Home size={16} /> 根目錄
+          <Home size={16} /> 
         </button>
         {parts.map((part, index) => {
           const pathToHere = parts.slice(0, index + 1).join('/');
@@ -110,6 +112,16 @@ function App() {
         </header>
 
         <section className="content-area">
+          {currentPath === "" && (
+            <div className="recent-updates-section">
+              <h2 className="section-title">最新更新</h2>
+              <div className="updates-list">
+                <p className="no-updates-text">目前尚無最新更新資料。</p>
+                {/* 預留給未來放最新資料的區塊 */}
+              </div>
+            </div>
+          )}
+          
           {loading ? (
             <div className="loading-wrapper"><Loader2 className="spinner" size={44} /></div>
           ) : (
