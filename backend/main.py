@@ -28,6 +28,8 @@ app.add_middleware(
 
 TOKEN = os.getenv("GITHUB_TOKEN")
 REPO = os.getenv("REPO_NAME")
+# 從 .env 讀取要排除的資料夾名稱 (以逗號分隔)
+EXCLUDE_FOLDERS = [f.strip() for f in os.getenv("EXCLUDE_FOLDERS", "").split(",") if f.strip()]
 
 g = Github(TOKEN)
 repo = g.get_repo(REPO)
@@ -64,6 +66,10 @@ async def list_files(folder_path: str):
         
         items = []
         for content in contents:
+            # 如果是在根目錄，且該檔案/資料夾名稱在排除名單內，則跳過
+            if path == "" and content.name in EXCLUDE_FOLDERS:
+                continue
+                
             items.append({
                 "name": content.name,
                 "type": content.type, # 'file' 或 'dir'
